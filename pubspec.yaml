@@ -1,0 +1,33 @@
+name: edgeid_secure
+description: Offline biometric anti-spoofing & verification SDK for Fayda.
+version: 0.1.0
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: '>=3.10.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  camera: ^0.10.5+5
+  image: ^4.3.0                # pixel manipulation (Dart, used in isolate)
+  tflite_flutter: ^0.11.0      # TFLite inference (Dart 3.0 compatible)
+  ffi: ^2.1.0                  # for potential native bindings
+  hive_flutter: ^1.1.0         # encrypted local storage
+  flutter_secure_storage: ^9.0.0  # secure key storage
+  pointycastle: ^3.7.4         # crypto for QR signature verification
+  convert: ^3.1.1              # base64, hex
+  crypto: ^3.0.3               # SHA256, HMAC for ledger
+  jwt_decoder: ^2.0.1          # JWT verification (Fayda eSignet)
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  assets:
+    - assets/models/face_det_short.tflite
+    - assets/models/liveness.tflite
+    - assets/models/embedder.tflite
+    - assets/fayda_public_key.pem   # Fayda's public key for signature verification
